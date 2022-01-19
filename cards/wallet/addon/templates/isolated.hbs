@@ -1,0 +1,52 @@
+<div class="wallet-isolated" data-test-wallet-isolated>
+  <TopHeader></TopHeader>
+  <Breadcrumbs></Breadcrumbs>
+
+  <main class="wallet-isolated__main">
+    <section class="wallet-isolated__container">
+      <header class="wallet-isolated__header">
+        <a href={{cardstack-url content}} class="wallet-isolated__heading">
+          <span class="wallet-isolated__logo" style={{css-url "background-image" (concat "/portfolio-common/images/" (or content.logo "wallet") ".svg")}} />
+          <div>
+            <h2 class="wallet-isolated__title" data-test-wallet-isolated-title>{{content.title}}</h2>
+          </div>
+        </a>
+        <div class="wallet-isolated__summary">
+          <div class="wallet-isolated__summary-count" data-test-wallet-isolated-count>
+            {{#if (eq content.assets.length 1)}}
+              1 Asset
+            {{else}}
+              {{or content.assets.length "0"}} Assets
+            {{/if}}
+          </div>
+          <div class="wallet-isolated__summary-value">
+            <button class="wallet-isolated__info-button">
+              {{svg-jar "info-icon" width="16px" height="16px"}}
+            </button>
+            <span data-test-wallet-isolated-value>
+              ≈ {{currency-symbol currency}}{{totalBalance}} {{#if (eq currency 'BTC')}}{{currency}}{{/if}}
+            </span>
+          </div>
+        </div>
+      </header>
+
+      {{#if content.assets.length}}
+        <section class="wallet-isolated-section">
+          <header>
+            <h3 class="wallet-isolated-section__title">Active Assets</h3>
+            <div class="wallet-isolated-section__count" data-test-wallet-isolated-section-active-count>
+              {{content.assets.length}}
+            </div>
+          </header>
+          <div class="wallet-isolated-section__grid">
+            {{#each content.assets as |asset index|}}
+              <div data-test-wallet-isolated-asset={{index}}>
+                {{cardstack-content content=asset format="embedded"}}
+              </div>
+            {{/each}}
+          </div>
+        </section>
+      {{/if}}
+    </section>
+  </main>
+</div>

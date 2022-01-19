@@ -1,0 +1,36 @@
+:root {
+  /* TODO: Switching to using "cardfolio" as the prefix.
+     Remove "portfolio" prefixed names when ready. */
+  --portfolio-xs-font: var(--cardfolio-xs-font);
+  --portfolio-sm-font: var(--cardfolio-sm-font);
+  --portfolio-med-font: var(--cardfolio-med-font);
+  --portfolio-lg-font: var(--cardfolio-lg-font);
+  --portfolio-xl-font: var(--cardfolio-xl-font);
+
+  --cardfolio-xs-font: 12px;
+  --cardfolio-sm-font: 14px;
+  --cardfolio-med-font: 16px;
+  --cardfolio-lg-font: 18px;
+  --cardfolio-xl-font: 20px;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("/portfolio-common/fonts/OpenSans-Regular.ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("/portfolio-common/fonts/OpenSans-SemiBold.ttf");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("/portfolio-common/fonts/OpenSans-Bold.ttf");
+  font-weight: 700;
+  font-style: normal;
+}

@@ -1,0 +1,121 @@
+<TopHeader />
+<main class="portfolio-isolated" data-test-portfolio-isolated>
+  <nav class="portfolio-isolated--side-nav" data-test-portfolio-isolated-side-nav>
+    <ul class="portfolio-isolated--side-nav-list">
+      <li>
+          <a href="#"
+             onclick={{action "setActiveSection" null}}
+             class="portfolio-isolated--side-nav--link {{if isOverviewActive "active"}}"
+             data-test-portfolio-isolated-side-nav-item="show-all">
+            {{svg-jar "home" width="18px" height="18px" class="portfolio-isolated--side-nav--icon"}}
+            Show All
+          </a>
+      </li>
+      {{#each displaySections as |displaySection|}}
+        <li>
+          <a href="#"
+             onclick={{action "setActiveSection" displaySection}}
+             class="portfolio-isolated--side-nav--link {{if (eq activeSection.title displaySection.title) "active"}}"
+             data-test-portfolio-isolated-side-nav-item={{displaySection.title}}>
+            {{svg-jar displaySection.title width="18px" height="18px" class="portfolio-isolated--side-nav--icon"}}
+            {{displaySection.title}}
+          </a>
+        </li>
+      {{/each}}
+    </ul>
+  </nav>
+
+  <header class="portfolio-isolated--header portfolio-isolated--grid-header" data-test-portfolio-isolated-header>
+    <h1 class="portfolio-isolated--title">
+      {{svg-jar "wallet" width="36px" height="36px" class="portfolio-isolated--icon"}}
+      {{activeSection.title}}
+    </h1>
+    <h2 class="portfolio-isolated--sub-title">{{activeSection.description}}</h2>
+  </header>
+
+  {{#if isOverviewActive}}
+    {{!-- TODO: Need copy --}}
+    {{#unless isDismissed}}
+      <section class="portfolio-isolated-intro" data-test-portfolio-isolated-intro>
+        {{svg-jar "cardstack-logo" width="42px" height="42px" class="portfolio-isolated-intro--icon"}}
+        <h2 class="portfolio-isolated-intro--title">Welcome to your Personalized Wallet</h2>
+        <p class="portfolio-isolated-intro--copy">
+          You can register to view credentials, memberships and tracked assets across all your sites.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed scelerisque ex, sed
+          elementum lorem. Phasellus sit amet ipsum in tellus vestibulum tincidunt. Etiam rhoncus,
+          orci quis elementum pulvinar, leo lectus feugiat ligula.
+        </p>
+        <button onclick={{action "dismiss"}} class="portfolio-isolated-intro--button">
+          Dismiss
+          {{svg-jar "close" width="10px" height="10px" class="portfolio-isolated-intro--button-icon"}}
+        </button>
+      </section>
+    {{/unless}}
+
+    {{#each displaySections as |displayGroup|}}
+      <section class="portfolio-section" data-test-portfolio-section={{displayGroup.title}}>
+        <header class="portfolio-section--header">
+          <h2 class="portfolio-section--title">
+            {{svg-jar displayGroup.title width="26px" height="26px" class="portfolio-section--icon"}}
+            Most Active {{displayGroup.title}}
+          </h2>
+          {{!-- TODO: LINK --}}
+          <button class="portfolio-section--view-all" onclick={{action "setActiveSection" displayGroup}}>
+            View All {{displayGroup.title}}
+          </button>
+        </header>
+        {{#if (eq displayGroup.title "assets")}}
+          {{#unless loadingAssets}}
+            <section class="network-section" data-test-network-section>
+              <header class="network-section--header">
+                {{!-- TODO: Display network title --}}
+                <h3 class="network-section--title">Ethereum Mainnet</h3>
+              </header>
+              <GridDisplay @contents={{sortedAssets}} />
+            </section>
+          {{/unless}}
+        {{else}}
+          Coming Soon
+        {{/if}}
+      </section>
+    {{/each}}
+  {{else if isAssetsSection}}
+    <div class="assets-filter-bar" data-test-portfolio-isolated-filter-bar>
+      <div class="assets-filter-bar--count" data-test-portfolio-isolated-total-assets>Showing {{assets.length}} Assets</div>
+      {{!-- <label class="assets-filter-bar--label">Filter By</label> --}}
+      {{!-- <Dropdown @label="Select an option" @theme="cardfolio-dropdown" /> --}}
+      <label class="assets-filter-bar--label">Sort By</label>
+      <Dropdown @options={{sortingOptions}} @selected={{selected}} @theme="cardfolio-dropdown" @label="" />
+      <button onclick={{action "setListView"}} class="assets-filter-bar--button {{if isListView "active"}}" aria-label="List view" data-test-list-view-button>
+        {{svg-jar "list" width="26px" height="26px" class="assets-filter-bar--icon"}}
+      </button>
+      <button onclick={{action "unsetListView"}} class="assets-filter-bar--button {{if (not isListView) "active"}}" aria-label="Grid view" data-test-grid-view-button>
+        {{svg-jar "grid" width="26px" height="26px" class="assets-filter-bar--icon"}}
+      </button>
+    </div>
+
+    {{#unless loadingAssets}}
+      <section class="network-section" data-test-portfolio-isolated-network-section>
+        <header class="network-section--header">
+          {{!-- TODO: Display network title --}}
+          <h3 class="network-section--title" data-test-portfolio-isolated-network-title>Ethereum Mainnet</h3>
+          <span data-test-portfolio-isolated-network-asset-count>{{assets.length}} Assets</span>
+        </header>
+
+        {{#if isAscending}}
+          {{#if isListView}}
+            <GridDisplay @contents={{sortedAssets}} @isListView="true" class="network-section--list" data-test-network-section-grid />
+          {{else}}
+            <GridDisplay @contents={{sortedAssets}} data-test-network-section-grid />
+          {{/if}}
+        {{else}}
+          {{#if isListView}}
+            <GridDisplay @contents={{sortedAssets}} @isListView="true" class="network-section--list" data-test-network-section-grid />
+          {{else}}
+            <GridDisplay @contents={{sortedAssets}} data-test-network-section-grid />
+          {{/if}}
+        {{/if}}
+      </section>
+    {{/unless}}
+  {{/if}}
+</main>

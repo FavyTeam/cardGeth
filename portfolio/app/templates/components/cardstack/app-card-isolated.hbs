@@ -1,0 +1,8 @@
+{{#if isFastBoot}}
+  {{!-- empty application UI shell goes here, anything that make sense to render that is not based on session --}}
+{{else if isAuthenticated}}
+  {{!-- probably nothing goes here? --}}
+  <h1>Portfolio Application Card</h1>
+{{else}}
+  <LoginForm></LoginForm>
+{{/if}}

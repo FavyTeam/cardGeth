@@ -1,0 +1,115 @@
+<div class="transaction-isolated" data-test-transaction-isolated>
+  <TopHeader></TopHeader>
+  <Breadcrumbs @isTransaction="true"></Breadcrumbs>
+
+  <main class="transaction-isolated__main transaction-isolated__grid">
+    <div>
+      <section class="transaction-isolated__section transaction-isolated__section--main">
+        <header class="transaction-isolated__header">
+          <h2 class="transaction-isolated__title" data-test-transaction-isolated-title>TX# {{abbreviatedTransactionHash}}</h2>
+          <time class="transaction-isolated__time" datetime={{datetime}} data-test-transaction-isolated-date>{{date}}</time>
+        </header>
+
+        <div class="transaction-isolated__transaction-hash">
+          <span class="transaction-isolated__hash-label">Full Transaction Hash</span>
+          <a href={{transactionHashLink}} class="transaction-isolated__hash-value" target="_blank" rel="noopener" data-test-transaction-isolated-hash>
+            {{content.transactionHash}}
+          </a>
+        </div>
+        <div class="transaction-isolated__amount">
+          <div class="transaction-isolated__amount-value" data-test-transaction-isolated-value>
+            <span class="transaction-isolated__amount--value">{{wei-to-ethers content.transactionValue}}</span>
+            <span class="transaction-isolated__amount--currency">ETH</span>
+          </div>
+          <div class="transaction-isolated__amount-value--fiat" data-test-transaction-isolated-fiat>
+            ≈ {{currency-symbol currency}}{{convert-currency 'ETH' currency content.transactionValue content.ratesAtTransactionTimestamp}} {{currency}}
+          </div>
+        </div>
+
+        <dl class="transaction-isolated__addresses">
+          <div class="transaction-isolated__address" data-test-transaction-isolated-from>
+            <dt>From</dt>
+            <dd>{{content.transactionFrom}}</dd>
+          </div>
+          {{#if content.transactionTo}}
+          <div class="transaction-isolated__address" data-test-transaction-isolated-to>
+            <dt>To</dt>
+            <dd>{{content.transactionTo}}</dd>
+          </div>
+          {{/if}}
+        </dl>
+
+        <div class="transaction-isolated__status" data-test-transaction-isolated-status>
+          Status:
+          {{#if content.transactionSuccessful}}
+            <span>Successful</span>
+            {{svg-jar "check" class="transaction-isolated__status-icon"}}
+          {{else}}
+            <span>Failed</span>
+          {{/if}}
+        </div>
+
+        <div class="transaction-isolated__details">
+          <dl>
+            <dt>Time</dt>
+            <dd data-test-transaction-isolated-time>{{datetime}}</dd>
+            <dt>Block Height</dt>
+            <dd data-test-transaction-isolated-block-height>{{content.blockNumber}}</dd>
+            <dt>Gas Limit</dt>
+            <dd data-test-transaction-isolated-gas-limit>{{content.gas}}</dd>
+            <dt>Gas Used by Transaction</dt>
+            <dd data-test-transaction-isolated-gas-used>{{content.gasUsed}}</dd>
+          </dl>
+          <dl>
+            <dt>Gas Price</dt>
+            <dd data-test-transaction-isolated-gas-price>{{gasPriceGwei}} Gwei</dd>
+            <dt>Actual Tx Cost/Fee</dt>
+            <dd data-test-transaction-isolated-cost>{{wei-to-ethers transactionCostWei 6}} Ethers</dd>
+            <dt>Nonce</dt>
+            <dd data-test-transaction-isolated-nonce>{{content.transactionNonce}}</dd>
+            <dt>Position</dt>
+            <dd data-test-transaction-isolated-position>{{content.transactionIndex}}</dd>
+          </dl>
+        </div>
+      </section>
+    </div>
+
+    <aside>
+      <section class="transaction-isolated__section transaction-isolated__section--padding">
+        <h3 class="transaction-isolated__section-title bg-icon--wallet">Belongs To</h3>
+        {{!-- TO DO: Query wallet and link to it --}}
+        <a href={{cardstack-url "/wallets/demo-wallet"}} class="transaction-isolated__section-link">
+          Demo Wallet
+        </a>
+      </section>
+
+      <section class="transaction-isolated__section">
+        <div class="transaction-isolated__section--padding">
+          <h3 class="transaction-isolated__section-title bg-icon--tag">Tags</h3>
+          <ul class="transaction-isolated__tags-list">
+            <li><a href="/">Savings</a></li>
+            <li><a href="/">Business Operations</a></li>
+            <li><a href="/">International</a></li>
+            {{!-- TAGS HERE --}}
+          </ul>
+        </div>
+        <button class="transaction-isolated__section-button bg-icon--add">
+          Add custom tag
+        </button>
+      </section>
+
+      <section class="transaction-isolated__section">
+        <div class="transaction-isolated__section--padding">
+          <h3 class="transaction-isolated__section-title bg-icon--notes">Notes</h3>
+          <ul class="transaction-isolated__notes-list">
+            <li><p>Includes 15% bonus for using Card Folio!</p></li>
+            <li><p>Deposit today’s earnings to exchange</p></li>
+          </ul>
+        </div>
+        <button class="transaction-isolated__section-button bg-icon--add">
+          Add new note
+        </button>
+      </section>
+    </aside>
+  </main>
+</div>

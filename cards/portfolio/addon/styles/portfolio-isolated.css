@@ -1,0 +1,289 @@
+/* Grid Settings */
+.portfolio-isolated {
+  --cardfolio-border-color: var(--cardfolio-white-op10);
+  --grid-nav-width: 170px;
+  --grid-main-max-width: calc(var(--cardfolio-content-max-width) - var(--cardfolio-grid-gap) - var(--grid-nav-width));
+
+  display: grid;
+  grid-template-columns: var(--grid-nav-width) minmax(min-content, var(--grid-main-max-width));
+  grid-auto-rows: min-content;
+  grid-column-gap: var(--cardfolio-grid-gap);
+  grid-row-gap: var(--cardfolio-row-gap);
+  justify-content: center;
+}
+.portfolio-isolated--side-nav {
+  grid-column: 1;
+  grid-row: 1 / 3;
+}
+.portfolio-isolated--header {
+  grid-column: 2;
+  grid-row: 1;
+}
+.portfolio-section,
+.portfolio-isolated > section {
+  grid-column: 2;
+}
+
+/* Styles */
+.portfolio-isolated {
+  height: 100%;
+  min-height: 100vh;
+  padding: var(--cardfolio-padding);
+  background-color: var(--cardfolio-dark-background);
+  color: var(--cardfolio-white);
+  fill: var(--cardfolio-white);
+}
+
+/* Portfolio sidebar nav */
+.portfolio-isolated--side-nav-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.portfolio-isolated--side-nav--link {
+  display: inline-block;
+  padding: var(--cardfolio-padding-sm) 0;
+  color: var(--cardfolio-white-op50);
+  fill: var(--cardfolio-white-op50);
+  font-size: var(--cardfolio-sm-font);
+  line-height: 1.1;
+  text-decoration: none;
+  text-transform: capitalize;
+}
+
+.portfolio-isolated--side-nav--link:hover {
+  color: var(--cardfolio-white);
+  fill: var(--cardfolio-light-blue);
+}
+
+.portfolio-isolated--side-nav--link.active {
+  color: var(--cardfolio-white);
+  fill: var(--cardfolio-white);
+}
+
+.portfolio-isolated--side-nav--icon {
+  display: inline-block;
+  margin-right: var(--cardfolio-icon-margin);
+  vertical-align: text-bottom;
+}
+
+/* Portfolio header */
+.portfolio-isolated--header {
+  position: relative;
+}
+
+.portfolio-isolated--icon {
+  display: inline-block;
+  margin-right: var(--cardfolio-icon-margin);
+  fill: var(--cardfolio-light-blue);
+  vertical-align: text-top;
+}
+
+.portfolio-isolated--title {
+  margin: 0;
+  font-size: 32px;
+  font-weight: normal;
+  letter-spacing: -0.2px;
+  line-height: 1.5;
+  text-transform: capitalize;
+}
+
+.portfolio-isolated--sub-title {
+  margin: 0;
+  color: var(--cardfolio-white-op60);
+  font-size: var(--cardfolio-med-font);
+  font-weight: normal;
+}
+
+/* Header welcome box */
+.portfolio-isolated-intro {
+  position: relative;
+  padding: var(--cardfolio-padding) 90px;
+  background: var(--cardfolio-gradient);
+  border-radius: var(--cardfolio-border-radius);
+}
+
+.portfolio-isolated-intro--icon {
+  display: inline-block;
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  fill: var(--cardfolio-white);
+}
+
+.portfolio-isolated-intro--title {
+  margin: 0;
+  padding-bottom: var(--cardfolio-padding-sm);
+  font-size: var(--cardfolio-xl-font);
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.5;
+}
+
+.portfolio-isolated-intro--copy {
+  margin: 0;
+  letter-spacing: 0.1px;
+  line-height: 24px;
+}
+
+.portfolio-isolated-intro--button {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  color: var(--cardfolio-white-op60);
+  font-size: var(--cardfolio-xs-font);
+  line-height: 15px;
+  letter-spacing: 0.07px;
+}
+
+.portfolio-isolated-intro--button:hover {
+  color: var(--cardfolio-white);
+  cursor: pointer;
+  user-select: none;
+}
+
+.portfolio-isolated-intro--button-icon {
+  margin-left: 5px;
+}
+
+/* Portfolio section */
+.portfolio-section--header {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: var(--cardfolio-padding);
+}
+
+.portfolio-section--title {
+  margin: 0;
+  font-size: var(--cardfolio-xl-font);
+  font-weight: normal;
+  letter-spacing: 0;
+  line-height: 1.5;
+  text-transform: capitalize;
+}
+
+.portfolio-section--view-all {
+  background-color: transparent;
+  border: none;
+  color: var(--cardfolio-white-op60);
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+.portfolio-section--view-all:hover {
+  color: var(--cardfolio-white);
+}
+
+.portfolio-section--icon {
+  display: inline-block;
+  margin-right: var(--cardfolio-icon-margin);
+  fill: var(--cardfolio-light-blue);
+  vertical-align: text-bottom;
+}
+
+/* Assets-only view filter bar */
+.assets-filter-bar {
+  display: flex;
+  flex: 1;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  align-items: center;
+
+  padding: var(--cardfolio-padding) 0;
+  border-bottom: 1px solid var(--cardfolio-border-color);
+  border-top: 1px solid var(--cardfolio-border-color);
+}
+
+.assets-filter-bar .ember-power-select-clear-btn {
+  display: none;
+}
+
+.assets-filter-bar > div {
+  padding-right: var(--cardfolio-padding);
+}
+
+.assets-filter-bar--count {
+  margin-right: auto;
+  color: var(--cardfolio-light-blue);
+}
+
+.assets-filter-bar--label {
+  padding-right: var(--cardfolio-padding-sm);
+  color: var(--cardfolio-white-op50);
+}
+
+.assets-filter-bar--button {
+  min-width: 60px;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.assets-filter-bar--icon {
+  fill: var(--cardfolio-white-op30);
+}
+
+.assets-filter-bar--button.active > .assets-filter-bar--icon,
+.assets-filter-bar--button:hover > .assets-filter-bar--icon {
+  fill: var(--cardfolio-white);
+}
+
+/* Network Section */
+.network-section {
+  padding-bottom: var(--cardfolio-padding);
+}
+
+.network-section--header {
+  padding-bottom: var(--cardfolio-padding-sm);
+}
+
+.network-section--title {
+  margin: 0;
+  color: var(--cardfolio-white);
+  font-size: var(--cardfolio-med-font);
+  font-weight: normal;
+  letter-spacing: 0;
+  line-height: 1.5;
+  text-transform: capitalize;
+}
+
+
+/* List View for embedded asset card */
+.network-section--list .asset-embedded {
+  background: none;
+  border-radius: 0;
+  box-shadow: 0 1px 1px 0 var(--cardfolio-border-color);
+}
+
+.network-section--list .asset-embedded__wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 0;
+}
+
+/* .network-section--list .asset-embedded__balance-main {
+  font-size: var(--cardfolio-med-font);
+}
+
+.network-section--list .asset-embedded__balance-fiat {
+  font-size: var(--cardfolio-med-font);
+} */
+
+.network-section--list .asset-embedded__balance {
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.network-section--list footer {
+  height: 0;
+  padding: 0;
+  background-color: transparent;
+  visibility: hidden;
+}

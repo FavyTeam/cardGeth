@@ -1,0 +1,102 @@
+.asset-embedded {
+  background-color: var(--portfolio-light-purple);
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.35);
+}
+.asset-embedded:hover,
+.asset-embedded:focus {
+  filter: brightness(110%);
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.25);
+}
+
+.asset-embedded--bitcoin {
+  background: var(--portfolio-bitcoin-gradient);
+}
+.asset-embedded--ether {
+  background: var(--portfolio-ether-gradient);
+}
+.asset-embedded--litecoin {
+  background: var(--portfolio-litecoin-gradient);
+}
+.asset-embedded--zcash {
+  background: var(--portfolio-zcash-gradient);
+}
+
+.asset-embedded__link {
+  display: block;
+  text-decoration: none;
+  color: var(--portfolio-white);
+  font-size: var(--portfolio-sm-font);
+  letter-spacing: 0.2px;
+}
+
+.asset-embedded__wrapper {
+  padding: 20px;
+}
+
+.asset-embedded__header {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+.asset-embedded__title-row {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.asset-embedded__title {
+  margin: 0;
+  font-size: var(--portfolio-med-font);
+  font-weight: bold;
+  letter-spacing: 0.2px;
+  line-height: 1.1;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.asset-embedded__logo {
+  margin-right: 10px;
+}
+
+/* Balance summary */
+.asset-embedded__balance {
+  font-weight: bold;
+  letter-spacing: 0.3px;
+  line-height: 1.5;
+  text-align: right;
+}
+.asset-embedded__balance-main {
+  padding-bottom: 10px;
+  font-size: 36px;
+  line-height: 1;
+}
+.asset-embedded__balance-main > span {
+  font-size: var(--portfolio-sm-font);
+}
+.asset-embedded__balance-fiat {
+  font-size: var(--portfolio-sm-font);
+}
+
+.asset-embedded__details {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: var(--portfolio-light-purple);
+  border-radius: 0 0 5px 5px;
+}
+
+.asset-embedded__details-item {
+  font-size: var(--portfolio-xs-font);
+  font-weight: 600;
+  letter-spacing: 0.1px;
+  line-height: 1.5;
+}

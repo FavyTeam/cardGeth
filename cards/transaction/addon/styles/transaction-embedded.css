@@ -1,0 +1,142 @@
+.transaction-embedded {
+  display: block;
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: var(--portfolio-white);
+  color: var(--portfolio-black);
+  border: 1px solid var(--portfolio-border-gray);
+  border-radius: 5px;
+  text-decoration: none;
+}
+.transaction-embedded:hover,
+.transaction-embedded:focus {
+  outline: none;
+  background-color: var(--portfolio-highlight-gray);
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.35);
+}
+
+.transaction-embedded__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.transaction-embedded__title {
+  margin: 0;
+  font-weight: 600;
+}
+
+.transaction-embedded__datetime {
+  color: var(--portfolio-light-purple);
+  font-size: var(--portfolio-xs-font);
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.transaction-embedded__data {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 0 15px;
+  font-size: 13px;
+  letter-spacing: 0.24px;
+  text-align: center;
+}
+
+.transaction-embedded__data > * {
+  height: 180px;
+}
+
+.transaction-embedded__amount {
+  padding-top: 70px;
+  border-right: solid 1px var(--portfolio-border-gray);
+}
+
+.transaction-embedded__addresses {
+  padding-top: 40px;
+}
+
+.transaction-embedded__data .transaction-embedded__amount--value {
+  font-size: 26px;
+  letter-spacing: 0.14px;
+  line-height: 20px;
+}
+
+.transaction-embedded__data .transaction-embedded__amount--currency {
+  letter-spacing: 0.2px;
+  line-height: 20px;
+  padding-left: 10px;
+}
+.transaction-embedded__data .transaction-embedded__amount--fiat {
+  opacity: 0.5;
+  color: #000000;
+  line-height: 19px;
+}
+
+.transaction-embedded__data .transaction-embedded__label {
+  color: #676680;
+  line-height: 20px;
+  text-transform: uppercase;
+}
+.transaction-embedded__data .transaction-embedded__address {
+  margin: 0;
+  line-height: 25px;
+  font-size: var(--portfolio-med-font);
+}
+
+.transaction-embedded__label--sent {
+  background-image: url("/portfolio-common/images/sent-arrow.svg");
+  background-position: left center;
+  background-repeat: no-repeat;
+  background-size: 22px 24px;
+  padding-left: 45px;
+}
+
+.transaction-embedded__amount {
+  font-weight: bold;
+}
+.transaction-embedded__amount--fiat {
+  color: var(--portfolio-muted-gray);
+  font-size: var(--portfolio-xs-font);
+}
+
+.transaction-embedded__address-to {
+  margin-top: 15px;
+}
+
+.transaction-embedded__address {
+  font-weight: 600;
+}
+
+.transaction-embedded__status {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 25px;
+
+  border-radius: 5px;
+  color: var(--portfolio-white);
+  font-size: var(--portfolio-xs-font);
+  font-weight: 600;
+}
+.transaction-embedded__status.transaction-successful {
+  background-color: var(--portfolio-green);
+}
+.transaction-embedded__status.transaction-failed {
+  background-color: var(--portfolio-red-failed);
+}
+.transaction-embedded__status-icon {
+  width: 14px;
+  height: 10px;
+  margin-left: 10px;
+}
+
+.transaction-embedded__details {
+  padding-right: 15px;
+  background-image: url("/portfolio-common/images/chevron-right.svg");
+  background-position: right center;
+  background-repeat: no-repeat;
+  background-size: 6px 10px;
+}

@@ -1,0 +1,50 @@
+---
+language: node_js
+node_js:
+  - "8"
+
+sudo: required
+dist: trusty
+
+branches:
+  only:
+  - master
+
+services:
+  - docker
+
+matrix:
+  fast_finish: true
+
+before_install:
+  - echo "$SSH_PRIVATE_KEY" > $HOME/.ssh/id_rsa && chmod 400 $HOME/.ssh/id_rsa
+  - pip install --user awscli
+  - aws ecr --region us-east-1 get-login --no-include-email | bash
+  - docker network create cardstack
+  - docker run -d --rm --network cardstack --name postgres cardstack/pg-test
+
+install:
+  - cd deploy && yarn install && cd ..
+  - node ./deploy/build.js
+  - docker build -f deploy/Dockerfile.tests -t tests .
+
+script:
+  - docker run --rm --network cardstack --env PGHOST=postgres --env CI --env HUB_ENVIRONMENT=test --env TARGET_ENV="travis-$TRAVIS_BUILD_NUMBER"  tests
+
+deploy:
+  # disabling deploys to demo env
+  # This is the demo env--we'll need to rename it...
+  # - provider: script
+  #   skip_cleanup: true
+  #   script: TARGET_NAME='staging-portfolio.stack.cards' deploy/deploy.sh staging $TRAVIS_BRANCH
+  #   on:
+  #     branch: master
+
+  - provider: script
+    skip_cleanup: true
+    script: TARGET_NAME='staging-rinkeby-cardfolio.stack.cards' deploy/deploy.sh staging_rinkeby $TRAVIS_BRANCH
+    on:
+      branch: master
+
+notifications:
+  email: false

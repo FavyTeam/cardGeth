@@ -1,0 +1,26 @@
+.portfolio-account-card {
+  min-height: 100vh;
+  height: 100%;
+  margin: 0;
+  padding: 50px 25px 100px;
+  background-color: var(--cardfolio-dark-background);
+}
+
+.portfolio-account-card__title {
+  width: 200px;
+  margin: 0 auto 50px;
+  padding: 15px 0;
+  padding-left: 50px;
+  color: var(--cardfolio-white);
+  font-size: var(--cardfolio-xl-font);
+  font-weight: bold;
+  letter-spacing: 0.3px;
+  line-height: 1.4;
+  text-transform: uppercase;
+  text-align: center;
+
+  background-image: url("/portfolio-common/images/portfolio-logo.svg");
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 50px 50px;
+}

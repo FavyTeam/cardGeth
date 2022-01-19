@@ -1,0 +1,309 @@
+.asset-isolated {
+  padding-bottom: 75px;
+}
+
+.asset-isolated--bitcoin {
+  background: var(--portfolio-bitcoin-gradient);
+}
+.asset-isolated--ether {
+  background: var(--portfolio-ether-gradient);
+}
+.asset-isolated--litecoin {
+  background: var(--portfolio-litecoin-gradient);
+}
+.asset-isolated--zcash {
+  background: var(--portfolio-zcash-gradient);
+}
+
+.asset-isolated__main {
+  max-width: var(--portfolio-isolated-container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding: 25px 30px;
+}
+
+.portfolio-top-header + .asset-isolated__main {
+  padding-top: 50px;
+}
+
+.asset-isolated__grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  justify-content: center;
+  grid-gap: 30px;
+}
+
+.asset-isolated__wrapper {
+  padding: 25px 20px;
+}
+
+.asset-isolated__header {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 25px;
+}
+
+.asset-isolated__title-row {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.asset-isolated__title {
+  margin: 0;
+  font-size: var(--portfolio-med-font);
+  font-weight: bold;
+  letter-spacing: 0.2px;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.asset-isolated__logo {
+  margin-right: 10px;
+}
+
+/* Balance summary */
+.asset-isolated__balance {
+  padding-bottom: 25px;
+  font-weight: bold;
+  letter-spacing: 0.3px;
+  line-height: 1.5;
+}
+.asset-isolated__balance-main {
+  padding-bottom: 10px;
+  margin-left: 45px;
+  font-size: 54px;
+  line-height: 1;
+  text-shadow: 0 2px rgba(0,0,0,.15);
+}
+.asset-isolated__balance-main > span {
+  font-size: var(--portfolio-lg-font);
+}
+.asset-isolated__balance-fiat {
+  font-size: var(--portfolio-sm-font);
+}
+
+/* Currency switcher buttons */
+.asset-isolated__currency > span {
+  margin-left: -50px;
+  font-size: var(--portfolio-xs-font);
+  font-weight: 600;
+}
+.asset-isolated__currency-switcher {
+  display: inline-flex;
+  margin: 0 auto;
+  padding-left: 6px;
+}
+.asset-isolated__currency-switcher > button {
+  padding: 5px 10px;
+  background: none;
+  border: 1px solid var(--portfolio-white);
+  color: var(--portfolio-white);
+  font-size: var(--portfolio-xs-font);
+  font-weight: bold;
+  text-align: center;
+}
+.asset-isolated__currency-switcher > button:first-child {
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+.asset-isolated__currency-switcher > button:last-child {
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+.asset-isolated__currency-switcher > button + button {
+  border-left: none;
+}
+.asset-isolated__currency-switcher > button.active,
+.asset-isolated__currency-switcher > button.active:hover,
+.asset-isolated__currency-switcher > button:focus {
+  outline: none;
+  background-color: var(--portfolio-white);
+  color: var(--portfolio-dark-purple);
+  cursor: pointer;
+  user-select: none;
+}
+.asset-isolated__currency-switcher > button:hover {
+  outline: none;
+  background-color: var(--portfolio-white-alpha50);
+  color: var(--portfolio-white);
+  cursor: pointer;
+  user-select: none;
+}
+
+.asset-isolated__chart {
+  padding: 20px;
+}
+
+.asset-isolated__details {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  padding: 25px 20px;
+  background-color: var(--portfolio-white);
+  color: var(--portfolio-black);
+  border-radius: 0 0 5px 5px;
+}
+.asset-isolated__details-item {
+  font-size: var(--portfolio-sm-font);
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.5;
+}
+.asset-isolated__details-item:first-child {
+  width: 100%;
+  border-bottom: 1px solid var(--portfolio-border-gray);
+  margin-bottom: 25px;
+  padding-bottom: 25px;
+}
+.asset-isolated__details-item-title {
+  margin: 0;
+  color: var(--portfolio-light-purple);
+  font-size: var(--portfolio-sm-font);
+  font-weight: normal;
+  letter-spacing: 0;
+  line-height: 1.5;
+  padding-bottom: 6px;
+}
+.asset-isolated__details-item-link {
+  text-decoration: none;
+  color: var(--portfolio-black);
+  font-size: var(--portfolio-med-font);
+  font-weight: 600;
+  letter-spacing: 0.7px;
+  line-height: 1.2;
+  word-wrap: break-word;
+  word-break: break-all;
+  background: url("/portfolio-common/images/arrow-right.svg") no-repeat;
+  background-position: right;
+  background-size: 26px 26px;
+  padding-right: 1.5em;
+}
+.asset-isolated__details-item-link:hover,
+.asset-isolated__details-item-link:focus {
+  color: var(--portfolio-muted-gray);
+  cursor: pointer;
+}
+
+/*  Cards with white background  */
+.asset-isolated__section {
+  margin-bottom: 25px;
+  background-color: var(--portfolio-white);
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.35);
+}
+
+.asset-isolated__section--main {
+  background-color: var(--portfolio-light-purple);
+  color: var(--portfolio-white);
+  text-align: center;
+}
+
+.asset-isolated__section--padding {
+  padding: 15px 25px 25px;
+}
+
+.asset-isolated__section-logo {
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+.asset-isolated__section-title {
+  margin: 0;
+  margin-bottom: 15px;
+  padding: 10px 0;
+  font-size: var(--portfolio-med-font);
+  font-weight: normal;
+  letter-spacing: 0;
+  line-height: 1;
+
+  background-position: left center;
+  background-repeat: no-repeat;
+  background-size: 20px 21px;
+}
+.asset-isolated__section-title.bg-icon--history {
+  padding-left: 30px;
+  background-image: url("/portfolio-common/images/history.svg")
+}
+.asset-isolated__section-title.bg-icon--wallet {
+  padding-left: 30px;
+  background-image: url("/portfolio-common/images/wallet.svg")
+}
+.asset-isolated__section-title.bg-icon--tag {
+  padding-left: 30px;
+  background-image: url("/portfolio-common/images/tag.svg")
+}
+
+.asset-isolated__section-link {
+  display: inline-block;
+  color: var(--portfolio-light-purple);
+  text-decoration: none;
+}
+.asset-isolated__section-link:hover,
+.asset-isolated__section-link:focus {
+  color: var(--portfolio-dark-purple);
+  cursor: pointer;
+  user-select: none;
+}
+
+.asset-isolated__section-button {
+  display: block;
+  width: 100%;
+  padding: 15px 25px;
+  background: none;
+  border: none;
+  border-radius: 0 0 5px 5px;
+  border-top: 1px solid var(--portfolio-border-gray);
+  color: var(--portfolio-muted-gray);
+  font-size: var(--portfolio-xs-font);
+  line-height: 1.2;
+  letter-spacing: 0.2px;
+  text-align: left;
+}
+.asset-isolated__section-button.bg-icon--add {
+  background-image: url("/portfolio-common/images/add-icon.svg");
+  background-position: 25px center;
+  background-repeat: no-repeat;
+  background-size: 15px 15px;
+  text-indent: 25px;
+}
+.asset-isolated__section-button:hover,
+.asset-isolated__section-button:focus {
+  color: var(--portfolio-dark-purple);
+  background-color: var(--portfolio-highlight-gray);
+  cursor: pointer;
+  user-select: none;
+}
+
+/*  Tags  */
+.asset-isolated__tags-list {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.asset-isolated__tags-list > li {
+  padding: 5px;
+  background: none;
+}
+.asset-isolated__tags-list > li > a {
+  display: inline-block;
+  padding: 6px 12px;
+  background-color: var(--portfolio-light-gray);
+  border: none;
+  border-radius: 5px;
+  color: var(--portfolio-light-purple);
+  font-size: var(--portfolio-xs-font);
+  text-decoration: none;
+}
+.asset-isolated__tags-list > li > a:hover,
+.asset-isolated__tags-list > li > a:focus {
+  color: var(--portfolio-dark-purple);
+  cursor: pointer;
+  user-select: none;
+}

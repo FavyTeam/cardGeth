@@ -1,0 +1,39 @@
+<a class="transaction-embedded" data-test-transaction-embedded-link href={{cardstack-url content}}>
+  <header class="transaction-embedded__header">
+    <h4 class="transaction-embedded__title" data-test-transaction-embedded-title>TX# {{abbreviatedTransactionHash}}</h4>
+    <time class="transaction-embedded__datetime" datetime="" data-test-transaction-embedded-date>{{date}}</time>
+  </header>
+  <div class="transaction-embedded__data">
+    <div class="transaction-embedded__amount">
+      <div data-test-transaction-embedded-value>
+        <span class="transaction-embedded__amount--value">{{wei-to-ethers content.transactionValue}}</span>
+        <span class="transaction-embedded__amount--currency">ETH</span>
+      </div>
+      <div class="transaction-embedded__amount--fiat" data-test-transaction-embedded-fiat>
+        ≈ {{currency-symbol currency}}{{convert-currency 'ETH' currency content.transactionValue content.ratesAtTransactionTimestamp}} {{currency}}
+      </div>
+    </div>
+    <div class="transaction-embedded__addresses">
+      <div data-test-transaction-embedded-from class="transaction-embedded__address-from">
+        <div class="transaction-embedded__label">From</div>
+        <div class="transaction-embedded__address">{{abbreviatedFromAddress}}</div>
+      </div>
+      <div data-test-transaction-embedded-to class="transaction-embedded__address-to">
+        <div class="transaction-embedded__label">To</div>
+        <div class="transaction-embedded__address">{{abbreviatedToAddress}}</div>
+      </div>
+    </div>
+  </div>
+  <footer class="transaction-embedded__status {{if content.transactionSuccessful 'transaction-successful' 'transaction-failed'}}">
+    <div data-test-transaction-embedded-status>
+      Status:
+      {{#if content.transactionSuccessful}}
+        <span>Successful</span>
+        {{svg-jar "check" class="transaction-embedded__status-icon"}}
+      {{else}}
+        <span>Failed</span>
+      {{/if}}
+    </div>
+    <div class="transaction-embedded__details">Details</div>
+  </footer>
+</a>
